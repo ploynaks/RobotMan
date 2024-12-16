@@ -1,0 +1,14 @@
+/Users/ploy/Desktop/dev/playbook/RobotMan/RobotMan/bin/Debug/net8.0/RobotMan
+/Users/ploy/Desktop/dev/playbook/RobotMan/RobotMan/bin/Debug/net8.0/RobotMan.deps.json
+/Users/ploy/Desktop/dev/playbook/RobotMan/RobotMan/bin/Debug/net8.0/RobotMan.runtimeconfig.json
+/Users/ploy/Desktop/dev/playbook/RobotMan/RobotMan/bin/Debug/net8.0/RobotMan.dll
+/Users/ploy/Desktop/dev/playbook/RobotMan/RobotMan/bin/Debug/net8.0/RobotMan.pdb
+/Users/ploy/Desktop/dev/playbook/RobotMan/RobotMan/obj/Debug/net8.0/RobotMan.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ploy/Desktop/dev/playbook/RobotMan/RobotMan/obj/Debug/net8.0/RobotMan.AssemblyInfoInputs.cache
+/Users/ploy/Desktop/dev/playbook/RobotMan/RobotMan/obj/Debug/net8.0/RobotMan.AssemblyInfo.cs
+/Users/ploy/Desktop/dev/playbook/RobotMan/RobotMan/obj/Debug/net8.0/RobotMan.csproj.CoreCompileInputs.cache
+/Users/ploy/Desktop/dev/playbook/RobotMan/RobotMan/obj/Debug/net8.0/RobotMan.dll
+/Users/ploy/Desktop/dev/playbook/RobotMan/RobotMan/obj/Debug/net8.0/refint/RobotMan.dll
+/Users/ploy/Desktop/dev/playbook/RobotMan/RobotMan/obj/Debug/net8.0/RobotMan.pdb
+/Users/ploy/Desktop/dev/playbook/RobotMan/RobotMan/obj/Debug/net8.0/RobotMan.genruntimeconfig.cache
+/Users/ploy/Desktop/dev/playbook/RobotMan/RobotMan/obj/Debug/net8.0/ref/RobotMan.dll
