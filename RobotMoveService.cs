@@ -4,51 +4,48 @@ namespace RobotMan;
 
 public class RobotMoveService
 {
-    public int FirstIndex = 0;
-    public int LastIndex = 4;
-
     public RobotPosition Execute(RobotPosition currentPosition, Command command)
     {
         return command switch
         {
-            Command.Move => Move(currentPosition),
-            Command.Left => new()
+            Command.MOVE => Move(currentPosition),
+            Command.LEFT => new()
             {
                 X = currentPosition.X, Y = currentPosition.Y,
-                FacingDirection = Rotate(currentPosition.FacingDirection, RotateDirection.Left)
+                FacingDirection = Rotate(currentPosition.FacingDirection, Command.LEFT)
             },
-            Command.Right => new()
+            Command.RIGHT => new()
             {
                 X = currentPosition.X, Y = currentPosition.Y,
-                FacingDirection = Rotate(currentPosition.FacingDirection, RotateDirection.Right)
+                FacingDirection = Rotate(currentPosition.FacingDirection, Command.RIGHT)
             },
-            Command.Report => currentPosition,
+            Command.REPORT => currentPosition,
             _ => throw new Exception("Command is unknown.")
         };
     }
 
     public RobotPosition Move(RobotPosition position)
     {
-        if (position.X == FirstIndex && position.FacingDirection == Direction.West) return position;
-        if (position.Y == FirstIndex && position.FacingDirection == Direction.South) return position;
-        if (position.X == LastIndex && position.FacingDirection == Direction.East) return position;
-        if (position.Y == LastIndex && position.FacingDirection == Direction.North) return position;
+        if (position.X == Constants.FirstIndex && position.FacingDirection == Direction.WEST) return position;
+        if (position.Y == Constants.FirstIndex && position.FacingDirection == Direction.SOUTH) return position;
+        if (position.X == Constants.LastIndex && position.FacingDirection == Direction.EAST) return position;
+        if (position.Y == Constants.LastIndex && position.FacingDirection == Direction.NORTH) return position;
 
         var newPosition = new RobotPosition()
             { X = position.X, Y = position.Y, FacingDirection = position.FacingDirection };
 
         switch (position.FacingDirection)
         {
-            case Direction.North:
+            case Direction.NORTH:
                 newPosition.Y += 1;
                 break;
-            case Direction.East:
+            case Direction.EAST:
                 newPosition.X += 1;
                 break;
-            case Direction.South:
+            case Direction.SOUTH:
                 newPosition.Y -= 1;
                 break;
-            case Direction.West:
+            case Direction.WEST:
                 newPosition.X -= 1;
                 break;
             default:
@@ -57,14 +54,14 @@ public class RobotMoveService
         return newPosition;
     }
     
-    public Direction Rotate(Direction currrentDirection, RotateDirection rotateDirection)
+    public Direction Rotate(Direction currrentDirection, Command rotateDirection)
     {
         return currrentDirection switch
         {
-            Direction.North => rotateDirection == RotateDirection.Left ? Direction.West : Direction.East,
-            Direction.East => rotateDirection == RotateDirection.Left ? Direction.North : Direction.South,
-            Direction.South => rotateDirection == RotateDirection.Left ? Direction.East : Direction.West,
-            Direction.West => rotateDirection == RotateDirection.Left ? Direction.South : Direction.North,
+            Direction.NORTH => rotateDirection == Command.LEFT ? Direction.WEST : Direction.EAST,
+            Direction.EAST => rotateDirection == Command.LEFT ? Direction.NORTH : Direction.SOUTH,
+            Direction.SOUTH => rotateDirection == Command.LEFT ? Direction.EAST : Direction.WEST,
+            Direction.WEST => rotateDirection == Command.LEFT ? Direction.SOUTH : Direction.NORTH,
             _ => throw new Exception("Current direction is unknown.")
         };
     }

@@ -2,8 +2,8 @@ namespace RobotMan.Enums;
 
 public enum Direction
 {
-    North,
-    South,
-    East,
-    West
+    NORTH,
+    SOUTH,
+    EAST,
+    WEST
 }
