@@ -6,22 +6,26 @@ public class RobotMoveService
 {
     public RobotPosition Execute(RobotPosition currentPosition, Command command)
     {
-        return command switch
+        var newPosition = new RobotPosition()
+            { X = currentPosition.X, Y = currentPosition.Y, FacingDirection = currentPosition.FacingDirection };
+        switch (command)
         {
-            Command.MOVE => Move(currentPosition),
-            Command.LEFT => new()
-            {
-                X = currentPosition.X, Y = currentPosition.Y,
-                FacingDirection = Rotate(currentPosition.FacingDirection, Command.LEFT)
-            },
-            Command.RIGHT => new()
-            {
-                X = currentPosition.X, Y = currentPosition.Y,
-                FacingDirection = Rotate(currentPosition.FacingDirection, Command.RIGHT)
-            },
-            Command.REPORT => currentPosition,
-            _ => throw new Exception("Command is unknown.")
-        };
+            case Command.MOVE:
+                newPosition = Move(currentPosition);
+                break;
+            case Command.LEFT:
+                newPosition.FacingDirection = Rotate(currentPosition.FacingDirection, Command.LEFT);
+                break;
+            case Command.RIGHT:
+                newPosition.FacingDirection = Rotate(currentPosition.FacingDirection, Command.RIGHT);
+                break;
+            case Command.REPORT:
+                Console.WriteLine($"OUTPUT: {currentPosition}");
+                break;
+            default:
+                throw new Exception("Command is unknown.");
+        }
+        return newPosition;
     }
 
     public RobotPosition Move(RobotPosition position)
