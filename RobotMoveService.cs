@@ -6,6 +6,10 @@ public class RobotMoveService
 {
     public RobotPosition Execute(RobotPosition currentPosition, Command command)
     {
+        if ((currentPosition.X < Constants.FirstIndex || currentPosition.X > Constants.LastIndex)
+            || (currentPosition.Y < Constants.FirstIndex || currentPosition.Y > Constants.LastIndex))
+            throw new Exception($"The robot is not on the table. Position ({currentPosition.X},{currentPosition.Y})");
+        
         var newPosition = new RobotPosition()
             { X = currentPosition.X, Y = currentPosition.Y, FacingDirection = currentPosition.FacingDirection };
         switch (command)

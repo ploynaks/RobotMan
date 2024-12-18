@@ -52,5 +52,13 @@ var position = new RobotPosition() { X = x, Y = y, FacingDirection = direction }
 RobotMoveService service = new RobotMoveService();
 foreach (var command in commands)
 {
-    position = service.Execute(position, command);
+    try
+    {
+        position = service.Execute(position, command);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Command {command.ToString()} - Error: {ex.Message}");
+        break;
+    }
 }
